@@ -1,1 +1,9 @@
 C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\bin\Debug\RegistracijaKorisnika.exe.config
+C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\bin\Debug\RegistracijaKorisnika.exe
+C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\bin\Debug\RegistracijaKorisnika.pdb
+C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\obj\Debug\RegistracijaKorisnika.csprojResolveAssemblyReference.cache
+C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\obj\Debug\RegistracijaKorisnika.Form1.resources
+C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\obj\Debug\RegistracijaKorisnika.Properties.Resources.resources
+C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\obj\Debug\RegistracijaKorisnika.csproj.GenerateResource.Cache
+C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\obj\Debug\RegistracijaKorisnika.exe
+C:\Users\Lukas\Documents\SAS-RegisterUserApp\RegistracijaKorisnika\obj\Debug\RegistracijaKorisnika.pdb
