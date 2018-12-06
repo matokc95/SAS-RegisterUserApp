@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.Script.Serialization;
 
 namespace RegistracijaKorisnika
 {
@@ -20,6 +21,7 @@ namespace RegistracijaKorisnika
 
         private void btnRegistracija_Click(object sender, EventArgs e)
         {
+            
             string odgovorWebservisa = "";
             bool provjeraUnosa = ValidacijaUnosa();
             if (provjeraUnosa == true)
@@ -30,20 +32,27 @@ namespace RegistracijaKorisnika
             {
                 noviKorisnik = new Korisnik(txtIme.Text, txtPrezime.Text, txtEmail.Text, txtTitula.Text);
                 odgovorWebservisa = noviKorisnik.SlanjePodataka();
-
-
+                OčistiPodatke();
             }
             txtOdgovor.Text = odgovorWebservisa;
         }
 
         private Boolean ValidacijaUnosa()
         {
+            
             bool praznaPolja = false;
-            if (txtIme.Text == "" || txtPrezime.Text == "" || txtEmail.Text == "" || txtTitula.Text == "")
+            if (txtIme.Text == "" || txtPrezime.Text == "" || txtEmail.Text == "")
             {
+                
                 praznaPolja = true;
             }
-
+            if (ckbProfesor.Checked)
+            {
+                if (txtTitula.Text == "")
+                {
+                    praznaPolja = true;
+                }
+            }
 
             return praznaPolja;
         }
@@ -59,5 +68,14 @@ namespace RegistracijaKorisnika
                 txtTitula.Enabled = false;
             }
         }
+
+        private void OčistiPodatke()
+        {
+            txtEmail.Clear();
+            txtIme.Clear();
+            txtPrezime.Clear();
+            txtTitula.Clear();
+        }
+        
     }
 }

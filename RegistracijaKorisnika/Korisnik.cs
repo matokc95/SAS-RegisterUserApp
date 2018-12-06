@@ -22,38 +22,52 @@ namespace RegistracijaKorisnika
             Ime = ime;
             Prezime = prezime;
             Email = mail;
-
-            if (titula != null)
-            {
-                Titula = titula;
-            }
+            Titula = titula;
+            
         }
 
         public string SlanjePodataka()
         {
             string httpOdgovor = "";
+            string uloga;
             try
             {
                 using (var wb = new WebClient())
                 {
-                    var podaci = new NameValueCollection();
-                    podaci["ime"] = this.Ime;
-                    podaci["prezime"] = this.Prezime;
-                    podaci["email"] = this.Email;
-                    podaci["titula"] = this.Titula;
+                    NameValueCollection podaci;
+                    if (this.Titula!="")
+                    {
+                       
+                        podaci = new NameValueCollection();
+                        podaci["ime"] = this.Ime;
+                        podaci["prezime"] = this.Prezime;
+                        podaci["email"] = this.Email;
+                        podaci["titula"] = this.Titula;
+                        uloga = "profesor";
 
 
-                    string adresa = "https://studentattendancesystem-sas.000webhostapp.com/webservice/registracija/profesor/";
+                    }
+                    else
+                    {
+                        podaci = new NameValueCollection();
+                        podaci["ime"] = this.Ime;
+                        podaci["prezime"] = this.Prezime;
+                        podaci["email"] = this.Email;
+                        uloga = "student";
+
+
+                    }
+                    string adresa = "https://studentattendancesystem-sas.000webhostapp.com/webservice/registracija/"+uloga+"/";
                     var odgovor = wb.UploadValues(adresa, "POST", podaci);
                     httpOdgovor = Encoding.UTF8.GetString(odgovor);
-
+                    
                 }
 
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Pogreska prilikom slanja httpRequesta! Obratite se administraciji.");
+                MessageBox.Show("Pogreska prilikom slanja podataka na server! Obratite se administraciji.");
             }
             return httpOdgovor;
         }
